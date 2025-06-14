@@ -18,7 +18,10 @@ function Login() {
   async function submitHandler(e) {
     e.preventDefault();
     try {
-      const loginUser = await axios.post("http://localhost:5000/login", user);
+      const loginUser = await axios.post(
+        "https://fullstack-project-backend-o7sy.onrender.com/login",
+        user
+      );
       setUser({
         email: "",
         password: "",
