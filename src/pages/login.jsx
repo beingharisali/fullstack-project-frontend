@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { Form } from "react-bootstrap";
 import toast from "react-hot-toast";
 import axios from "axios";
@@ -9,6 +9,7 @@ function Login() {
     email: "",
     password: "",
   });
+const navigate = useNavigate()
 
   function changeHandler(e) {
     const name = e.target.name;
@@ -19,7 +20,7 @@ function Login() {
     e.preventDefault();
     try {
       const loginUser = await axios.post(
-        "https://fullstack-project-backend-o7sy.onrender.com/login",
+        "http://localhost:5000/login",
         user
       );
       setUser({
@@ -27,6 +28,7 @@ function Login() {
         password: "",
       });
       toast.success("User logged in");
+   navigate('/products')
     } catch (error) {
       toast.error(error.response.data.msg);
     }

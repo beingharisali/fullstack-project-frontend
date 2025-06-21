@@ -21,7 +21,7 @@ function Register() {
     e.preventDefault();
     try {
       const regiteredUser = await axios.post(
-        "https://fullstack-project-backend-o7sy.onrender.com/register",
+        "http://localhost:5000/register",
         user
       );
       setUser({
